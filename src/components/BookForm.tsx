@@ -4,23 +4,75 @@ import { addBook } from "../redux/bookSlice";
 import { useNavigate } from "react-router-dom";
 
 const BookForm = () => {
-  const [book, setBook] = useState({ title: "", author: "", genre: "", description: "" });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [book, setBook] = useState({
+    title: "",
+    author: "",
+    genre: "",
+    description: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setBook({ ...book, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(addBook({ ...book, id: crypto.randomUUID() }));
+
+    if (!book.title || !book.author || !book.genre || !book.description) {
+      alert("All fields are required");
+      return;
+    }
+
+    dispatch(
+      addBook({ id: Date.now().toString(), ...book }) // Use timestamp as ID
+    );
     navigate("/books");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 border rounded">
-      <input placeholder="Title" className="w-full border p-2 mb-2" value={book.title} onChange={(e) => setBook({ ...book, title: e.target.value })} required />
-      <input placeholder="Author" className="w-full border p-2 mb-2" value={book.author} onChange={(e) => setBook({ ...book, author: e.target.value })} required />
-      <input placeholder="Genre" className="w-full border p-2 mb-2" value={book.genre} onChange={(e) => setBook({ ...book, genre: e.target.value })} required />
-      <textarea placeholder="Description" className="w-full border p-2 mb-2" value={book.description} onChange={(e) => setBook({ ...book, description: e.target.value })} required />
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2">Add Book</button>
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 border rounded shadow-md">
+      gfhk
+      <input
+        type="text"
+        name="title"
+        placeholder="Title"
+        value={book.title}
+        onChange={handleChange}
+        className="w-full border p-2 mb-2"
+        required
+      />
+      <input
+        type="text"
+        name="author"
+        placeholder="Author"
+        value={book.author}
+        onChange={handleChange}
+        className="w-full border p-2 mb-2"
+        required
+      />
+      <input
+        type="text"
+        name="genre"
+        placeholder="Genre"
+        value={book.genre}
+        onChange={handleChange}
+        className="w-full border p-2 mb-2"
+        required
+      />
+      <textarea
+        name="description"
+        placeholder="Description"
+        value={book.description}
+        onChange={handleChange}
+        className="w-full border p-2 mb-2"
+        required
+      />
+      <button type="submit" className="bg-blue-500 text-white px-4 py-2 w-full">
+        Add Book
+      </button>
     </form>
   );
 };
