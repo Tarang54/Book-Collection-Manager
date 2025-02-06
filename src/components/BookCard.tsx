@@ -18,6 +18,8 @@ const BookCard = ({ id, title, author, genre }: BookProps) => {
       <p className="text-sm">by {author}</p>
       <p className="text-xs text-gray-500">{genre}</p>
       <div className="mt-2">
+        <Link to={`/books/${id}`} className="text-blue-500 mr-2">View</Link>
+        <button onClick={() => dispatch(deleteBook(id))} className="text-red-500">Delete</button>
       </div>
     </div>
   );
