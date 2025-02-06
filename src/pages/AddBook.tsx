@@ -1,3 +1,10 @@
 import BookForm from "../components/BookForm";
-const AddBook = () => <div className="p-4"><BookForm /></div>;
+import "../styles/AddBook.css";
+
+const AddBook = () => (
+  <div className="add-book-container">
+    <BookForm />
+  </div>
+);
+
 export default AddBook;

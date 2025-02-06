@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addBook } from "../redux/bookSlice";
 import { useNavigate } from "react-router-dom";
+import "../styles/BookForm.css";
 
 const BookForm = () => {
   const dispatch = useDispatch();
@@ -33,15 +34,14 @@ const BookForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 border rounded shadow-md">
-      gfhk
+    <form onSubmit={handleSubmit} className="book-form">
       <input
         type="text"
         name="title"
         placeholder="Title"
         value={book.title}
         onChange={handleChange}
-        className="w-full border p-2 mb-2"
+        className="form-input"
         required
       />
       <input
@@ -50,7 +50,7 @@ const BookForm = () => {
         placeholder="Author"
         value={book.author}
         onChange={handleChange}
-        className="w-full border p-2 mb-2"
+        className="form-input"
         required
       />
       <input
@@ -59,7 +59,7 @@ const BookForm = () => {
         placeholder="Genre"
         value={book.genre}
         onChange={handleChange}
-        className="w-full border p-2 mb-2"
+        className="form-input"
         required
       />
       <textarea
@@ -67,10 +67,10 @@ const BookForm = () => {
         placeholder="Description"
         value={book.description}
         onChange={handleChange}
-        className="w-full border p-2 mb-2"
+        className="form-textarea"
         required
       />
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2 w-full">
+      <button type="submit" className="submit-button">
         Add Book
       </button>
     </form>

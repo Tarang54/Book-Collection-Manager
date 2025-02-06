@@ -1,0 +1,50 @@
+.book-card {
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    background-color: #fff;
+  }
+  
+  .book-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .book-author {
+    font-size: 14px;
+    margin-bottom: 3px;
+  }
+  
+  .book-genre {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .book-actions {
+    margin-top: 10px;
+  }
+  
+  .view-link {
+    color: blue;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .view-link:hover {
+    text-decoration: underline;
+  }
+  
+  .delete-button {
+    color: red;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    text-decoration: underline;
+  }
+  
