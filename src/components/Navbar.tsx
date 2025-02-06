@@ -7,6 +7,7 @@ const Navbar = () => {
       <div className="space-x-4">
         <Link to="/" className="hover:underline">Home</Link>
         <Link to="/books" className="hover:underline">Books</Link>
+        <Link to="/add" className="hover:underline">Add Book</Link>
       </div>
     </nav>
   );
