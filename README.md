@@ -24,6 +24,7 @@ A simple React + Vite web application for managing a book collection. Users can 
 │   ├── 📂 components
 │   │   ├── BookCard.tsx
 │   │   ├── BookForm.tsx
+│   │   ├── BooksDetails.tsx
 │   │   ├── Navbar.tsx
 │   ├── 📂 pages
 │   │   ├── Home.tsx
